@@ -1,0 +1,12 @@
+{
+  "name": "ocr-viewer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["OCR", "ocr", "ocr-viewer", "picture ocr"],
+  "author": "TYF",
+  "license": "ISC"
+}
