@@ -49,6 +49,7 @@ export default class OCRViewer {
     });
     const ret = await worker.recognize(this._el, {rotateAuto: true}, {imageColor: true, imageGrey: true, imageBinary: true});
     console.log(ret);
+    await worker.terminate();
     return ret
   }
 }
