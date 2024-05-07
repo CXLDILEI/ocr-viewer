@@ -20,7 +20,7 @@ export default {
 		{
 			file: 'dist/ocr-viewer.min.js', // 压缩后的UMD格式输出
 			format: 'umd',
-			name: 'OCR_VIEWER', // 全局变量名
+			name: 'OCRViewer', // 全局变量名
 			sourcemap: true,
 			plugins: [terser()],
 		},
