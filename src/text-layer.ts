@@ -46,7 +46,6 @@ export default class TextLayer {
         spanLayer.style.color = 'transparent'
         spanLayer.style.cursor = 'text'
         // spanLayer.style.fontSize = `${line.words[0].font_size}px`
-        spanLayer.style.transform = 'scaleX(1.00025)'
 
         this.textLayer!.appendChild(spanLayer)
       }
