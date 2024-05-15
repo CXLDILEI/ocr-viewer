@@ -25,30 +25,33 @@ export default class TextLayer {
       this.textLayer.style.height = `${this.height}px`
       this.textLayer.style.position = 'absolute'
       this.textLayer.style.top = '0'
-      el.appendChild(this.textLayer)
       this.analysisText()
+      el.appendChild(this.textLayer)
     }
   }
   analysisText() {
     const { data } = this.textData!
-    if (Array.isArray(data.lines)) {
-      for (let i = 0; i < data.lines.length; i++) {
-        const line = data.lines[i]
-        const { text, bbox } = line
+    if (Array.isArray(data.words)) {
+      for (let i = 0; i < data.words.length; i++) {
+        const word = data.words[i]
+        const { text, bbox, baseline } = word
         const { x0: x, y0: y, x1: width, y1: height } = bbox
+        const baseLineY = baseline,has_baseline = true
         const spanLayer = document.createElement('span')
-        spanLayer.innerText = text.replace(/\s*/g, '')
+        spanLayer.innerText = text
         spanLayer.style.position = 'absolute'
+        spanLayer.style.display = 'inline-block'
+        spanLayer.style.verticalAlign = 'top'
         spanLayer.style.top = `${y}px`
         spanLayer.style.left = `${x}px`
-        // spanLayer.style.width = `${width}px`
-        // spanLayer.style.height = `${height}px`
         spanLayer.style.color = 'transparent'
         spanLayer.style.cursor = 'text'
-        // spanLayer.style.fontSize = `${line.words[0].font_size}px`
-
         this.textLayer!.appendChild(spanLayer)
       }
     }
+
+    const style = document.createElement('style');
+    document.head.appendChild(style);
+    style.sheet!.insertRule('#textLayer span::selection { background: rgba(22,119,255, 0.5); }', 0);
   }
 }

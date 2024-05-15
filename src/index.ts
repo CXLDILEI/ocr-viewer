@@ -54,7 +54,7 @@ export default class OCRViewer {
     const worker = await Tesseract.createWorker(this.lang, 1, {
       logger: (m: LoggerMessage) => console.log(m),
     });
-    const ret = await worker.recognize(this.imgElement, {rotateAuto: true}, {imageColor: true, imageGrey: true, imageBinary: true});
+    const ret = await worker.recognize(this.imgElement, {rotateAuto: true}, {imageColor: true, imageGrey: true, imageBinary: true, tsv: false});
     console.log('result:', ret);
     await worker.terminate();
     return ret
